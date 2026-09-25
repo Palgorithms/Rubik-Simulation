@@ -350,6 +350,9 @@ function buildFaceSelector() {
   faceSelector.option('L');
   faceSelector.option('B');
   faceSelector.position(canvasWidth / 2 - 250, 130);
+  faceSelector.changed(() => {
+    faceSelector.elt.blur();
+  })
 
   faceTitle = createP('Front Face');
   faceTitle.style('color', '#000');
@@ -412,6 +415,50 @@ function isLerpFinished(current, target, tolerance = 0.001) {
 // ============================================================
 //  Input
 // ============================================================
-function keyPressed() {
-  if (key === 'd') Debug = !Debug;
+function keyPressed(e){
+  if(e.key === 'd'){
+    Debug = !Debug;
+  }
+  if(e.code === 'KeyR'){
+    if(e.shiftKey)
+      MoveRubik('rp')
+    else
+      MoveRubik('r')
+  }
+  if(e.code === 'KeyF'){
+    if(e.shiftKey)
+      MoveRubik('fp')
+    else
+      MoveRubik('f')
+  }
+  if(e.code === 'KeyL'){
+    if(e.shiftKey)
+      MoveRubik('lp')
+    else
+      MoveRubik('l')
+  }
+  if(e.code === 'KeyU'){
+    if(e.shiftKey)
+      MoveRubik('up')
+    else
+      MoveRubik('u')
+  }
+  if(e.code === 'KeyD'){
+    if(e.shiftKey)
+      MoveRubik('dp')
+    else
+      MoveRubik('d')
+  }
+  if(e.code === 'KeyB'){
+    if(e.shiftKey)
+      MoveRubik('bp')
+    else
+      MoveRubik('b')
+  }
+  if(e.code === 'KeyM'){
+    if(e.shiftKey)
+      MoveRubik('mp')
+    else
+      MoveRubik('m')
+  }
 }
